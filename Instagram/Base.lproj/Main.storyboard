@@ -191,10 +191,25 @@
                     <view key="view" contentMode="scaleToFill" id="56Y-mD-xKN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-HP-V2i">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RWq-k4-M0Q" firstAttribute="bottom" secondItem="YaC-HP-V2i" secondAttribute="bottom" id="2vu-CN-p5q"/>
+                            <constraint firstItem="RWq-k4-M0Q" firstAttribute="trailing" secondItem="YaC-HP-V2i" secondAttribute="trailing" id="UWw-td-zCz"/>
+                            <constraint firstItem="YaC-HP-V2i" firstAttribute="leading" secondItem="RWq-k4-M0Q" secondAttribute="leading" id="XeA-II-t7i"/>
+                            <constraint firstItem="YaC-HP-V2i" firstAttribute="top" secondItem="RWq-k4-M0Q" secondAttribute="top" id="lDi-BW-RU1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RWq-k4-M0Q"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="flk-HC-osr"/>
+                    <connections>
+                        <outlet property="tableView" destination="YaC-HP-V2i" id="fjh-Sy-2tp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2f-5u-EN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

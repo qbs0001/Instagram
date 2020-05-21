@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2631805F2474EF2F0039E60F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631805E2474EF2F0039E60F /* AppDelegate.swift */; };
 		263180612474EF2F0039E60F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263180602474EF2F0039E60F /* SceneDelegate.swift */; };
-		263180632474EF2F0039E60F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263180622474EF2F0039E60F /* ViewController.swift */; };
 		263180662474EF2F0039E60F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263180642474EF2F0039E60F /* Main.storyboard */; };
 		263180682474EF310039E60F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263180672474EF310039E60F /* Assets.xcassets */; };
 		2631806B2474EF310039E60F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263180692474EF310039E60F /* LaunchScreen.storyboard */; };
@@ -18,13 +17,13 @@
 		263180772474F0680039E60F /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263180762474F0680039E60F /* ImageSelectViewController.swift */; };
 		263180792474F07A0039E60F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263180782474F07A0039E60F /* PostViewController.swift */; };
 		2631807B2474F08C0039E60F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631807A2474F08C0039E60F /* SettingViewController.swift */; };
+		266057B92476020E00C8B69C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266057B82476020E00C8B69C /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2631805B2474EF2F0039E60F /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631805E2474EF2F0039E60F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		263180602474EF2F0039E60F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		263180622474EF2F0039E60F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		263180652474EF2F0039E60F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		263180672474EF310039E60F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2631806A2474EF310039E60F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		263180762474F0680039E60F /* ImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewController.swift; sourceTree = "<group>"; };
 		263180782474F07A0039E60F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2631807A2474F08C0039E60F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		266057B82476020E00C8B69C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +70,10 @@
 				263180602474EF2F0039E60F /* SceneDelegate.swift */,
 				263180722474F03C0039E60F /* LoginViewController.swift */,
 				263180742474F0530039E60F /* HomeViewController.swift */,
+				266057B82476020E00C8B69C /* TabBarController.swift */,
 				263180762474F0680039E60F /* ImageSelectViewController.swift */,
 				263180782474F07A0039E60F /* PostViewController.swift */,
 				2631807A2474F08C0039E60F /* SettingViewController.swift */,
-				263180622474EF2F0039E60F /* ViewController.swift */,
 				263180642474EF2F0039E60F /* Main.storyboard */,
 				263180672474EF310039E60F /* Assets.xcassets */,
 				263180692474EF310039E60F /* LaunchScreen.storyboard */,
@@ -154,11 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				263180772474F0680039E60F /* ImageSelectViewController.swift in Sources */,
+				266057B92476020E00C8B69C /* TabBarController.swift in Sources */,
 				263180752474F0530039E60F /* HomeViewController.swift in Sources */,
 				263180792474F07A0039E60F /* PostViewController.swift in Sources */,
 				2631807B2474F08C0039E60F /* SettingViewController.swift in Sources */,
 				263180732474F03C0039E60F /* LoginViewController.swift in Sources */,
-				263180632474EF2F0039E60F /* ViewController.swift in Sources */,
 				2631805F2474EF2F0039E60F /* AppDelegate.swift in Sources */,
 				263180612474EF2F0039E60F /* SceneDelegate.swift in Sources */,
 			);

@@ -75,6 +75,14 @@ class LoginViewController: UIViewController {
                             return
                         }
                         print("DEBUG_PRINT: [displayName = \(user.displayName!)]の設定に成功しました。")
+                        
+                        
+                        let userRef = Firestore.firestore().collection(Const.UserPath).document(user.uid)
+                        // FireStoreに表示名データを保存する
+                        let userDic = [
+                            "name": displayName,
+                            ] as [String : Any]
+                        userRef.setData(userDic)
 
                         // HUDを消す
                         SVProgressHUD.dismiss()

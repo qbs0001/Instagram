@@ -38,6 +38,11 @@ class SettingViewController: UIViewController {
                         return
                     }
                     print("DEBUG_PRINT: [displayName = \(user.displayName!)]の設定に成功しました。")
+                    
+                    // 対象のユーザドキュメントを取得
+                    let userRef = Firestore.firestore().collection(Const.UserPath).document(user.uid)
+                    // 表示名を更新する
+                    userRef.updateData(["name": displayName])
 
                     // HUDで完了を知らせる
                     SVProgressHUD.showSuccess(withStatus: "表示名を変更しました")

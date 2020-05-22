@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="453" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="453"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="457" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="457"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="453"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="457"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="40X-z7-tJ6">
@@ -31,7 +31,7 @@
                         <state key="normal" title="Button" image="like_none"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKe-2L-hL2">
-                        <rect key="frame" x="76" y="339.5" width="40" height="21"/>
+                        <rect key="frame" x="76" y="340" width="40" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="x2f-gr-tuR"/>
                         </constraints>
@@ -40,47 +40,71 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMd-MB-xvP">
-                        <rect key="frame" x="126" y="339.5" width="168" height="21"/>
+                        <rect key="frame" x="176" y="340" width="118" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-hm-ORn">
-                        <rect key="frame" x="26" y="380" width="268" height="52"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NqS-I3-OUx">
+                        <rect key="frame" x="26" y="380" width="268" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-hm-ORn">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmM-Tf-uh3">
+                                <rect key="frame" x="0.0" y="33" width="268" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eD-Z9-8rY">
+                        <rect key="frame" x="126" y="330" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="PTH-Dg-uhQ"/>
+                            <constraint firstAttribute="height" constant="40" id="dc6-tI-QZf"/>
+                        </constraints>
+                        <state key="normal" image="message" catalog="system"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="pE5-hm-ORn" secondAttribute="bottom" constant="10" id="1W6-sK-VXx"/>
                     <constraint firstItem="AKe-2L-hL2" firstAttribute="leading" secondItem="ci7-Aj-3FN" secondAttribute="trailing" constant="10" id="32u-Ac-ph0"/>
                     <constraint firstItem="40X-z7-tJ6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6gr-Lr-MpO"/>
                     <constraint firstAttribute="trailing" secondItem="40X-z7-tJ6" secondAttribute="trailing" id="8MQ-3V-RYK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NqS-I3-OUx" secondAttribute="bottom" constant="10" id="9Kn-UT-GO2"/>
                     <constraint firstItem="ci7-Aj-3FN" firstAttribute="top" secondItem="40X-z7-tJ6" secondAttribute="bottom" constant="10" id="BZA-fY-y1b"/>
                     <constraint firstItem="40X-z7-tJ6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FIp-ma-caq"/>
                     <constraint firstItem="ci7-Aj-3FN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="GHr-We-MYn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NqS-I3-OUx" secondAttribute="trailing" constant="10" id="Jyp-Qq-2j0"/>
                     <constraint firstItem="AKe-2L-hL2" firstAttribute="centerY" secondItem="ci7-Aj-3FN" secondAttribute="centerY" id="KYL-If-KpA"/>
-                    <constraint firstItem="pE5-hm-ORn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="RPk-BV-yuR"/>
+                    <constraint firstItem="NqS-I3-OUx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="NWC-ao-zpt"/>
+                    <constraint firstItem="yMd-MB-xvP" firstAttribute="leading" secondItem="0eD-Z9-8rY" secondAttribute="trailing" constant="10" id="SgU-44-wjH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="yMd-MB-xvP" secondAttribute="trailing" constant="10" id="Tlx-q1-nS4"/>
-                    <constraint firstItem="pE5-hm-ORn" firstAttribute="top" secondItem="ci7-Aj-3FN" secondAttribute="bottom" constant="10" id="cgU-5Q-nat"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="pE5-hm-ORn" secondAttribute="trailing" constant="10" id="gMM-am-w1p"/>
+                    <constraint firstItem="0eD-Z9-8rY" firstAttribute="centerY" secondItem="ci7-Aj-3FN" secondAttribute="centerY" id="cuY-qs-gLQ"/>
+                    <constraint firstItem="0eD-Z9-8rY" firstAttribute="leading" secondItem="AKe-2L-hL2" secondAttribute="trailing" constant="10" id="hfu-o3-haT"/>
+                    <constraint firstItem="NqS-I3-OUx" firstAttribute="top" secondItem="ci7-Aj-3FN" secondAttribute="bottom" constant="10" id="j35-cw-LRe"/>
                     <constraint firstItem="yMd-MB-xvP" firstAttribute="centerY" secondItem="ci7-Aj-3FN" secondAttribute="centerY" id="jXM-a2-8Re"/>
-                    <constraint firstItem="yMd-MB-xvP" firstAttribute="leading" secondItem="AKe-2L-hL2" secondAttribute="trailing" constant="10" id="rL8-MO-rFq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="captionLabel" destination="pE5-hm-ORn" id="E3n-Q1-cSJ"/>
+                <outlet property="commentButton" destination="0eD-Z9-8rY" id="uD7-OD-x99"/>
+                <outlet property="commentLabel" destination="WmM-Tf-uh3" id="lYm-Ks-Jov"/>
                 <outlet property="dateLabel" destination="yMd-MB-xvP" id="bD0-r9-GYv"/>
                 <outlet property="likeButton" destination="ci7-Aj-3FN" id="Yk8-XC-sEC"/>
                 <outlet property="likeLabel" destination="AKe-2L-hL2" id="MJF-e5-hmx"/>
                 <outlet property="postImageView" destination="40X-z7-tJ6" id="cbv-lO-qmr"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="110.82589285714285"/>
+            <point key="canvasLocation" x="137.68115942028987" y="112.16517857142857"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="like_none" width="40" height="40"/>
+        <image name="message" catalog="system" width="64" height="56"/>
     </resources>
 </document>

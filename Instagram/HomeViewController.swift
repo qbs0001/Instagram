@@ -1,9 +1,8 @@
-import UIKit
 import Firebase
+import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     // 投稿データを格納する配列
     var postArray: [PostData] = []
@@ -31,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if listener == nil {
                 // listener未登録なら、登録してスナップショットを受信する
                 let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                listener = postsRef.addSnapshotListener { querySnapshot, error in
                     if let error = error {
                         print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
                         return
@@ -68,7 +67,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postArray[indexPath.row])
 
         // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        cell.likeButton.addTarget(self, action: #selector(handleButton(_:forEvent:)), for: .touchUpInside)
+
+        // コメントボタン
+        cell.commentButton.addTarget(self, action: #selector(commentButton(_:forEvent:)), for: .touchUpInside)
 
         return cell
     }
@@ -79,7 +81,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
-        let point = touch!.location(in: self.tableView)
+        let point = touch!.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
 
         // 配列からタップされたインデックスのデータを取り出す
@@ -100,5 +102,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
             postRef.updateData(["likes": updateValue])
         }
+    }
+
+    // セル内のボタンがタップされた時に呼ばれるメソッド
+    @objc func commentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+
+        // comment画面にモーダル画面遷移する
+        let commentViewController = storyboard!.instantiateViewController(withIdentifier: "Comment") as! CommentViewController
+
+        // 対象のドキュメントIDを設定する
+        commentViewController.documentId = postData.id
+
+        present(commentViewController, animated: true)
     }
 }

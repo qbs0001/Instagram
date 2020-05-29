@@ -7,8 +7,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // 投稿データを格納する配列
     var postArray: [PostData] = []
 
+    // ユーザ情報を格納する配列と辞書
+    var userArray: [String] = []
+    var userDic: [String: String] = [:]
+
     // Firestoreのリスナー
     var listener: ListenerRegistration!
+    var listener2: ListenerRegistration!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +42,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                     // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
                     self.postArray = querySnapshot!.documents.map { document in
-                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        print("DEBUG_PRINT: postdocument取得 \(document.documentID)")
                         let postData = PostData(document: document)
                         return postData
+                    }
+                    // ユーザ情報を取得済みの場合は、更新する。
+                    // 初回の場合は、ユーザ情報取得側で、更新する。
+                    if self.listener2 != nil {
+                        // TableViewの表示を更新する
+                        self.tableView.reloadData()
+                    }
+                }
+                // ユーザ情報のリスナー
+                let userRef = Firestore.firestore().collection(Const.UserPath)
+                listener2 = userRef.addSnapshotListener { querySnapshot, error in
+                    if let error = error {
+                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                        return
+                    }
+                    // 取得したdocumentをもとにuserDicの辞書にする。
+                    self.userArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: userdocument取得 \(document.documentID)")
+                        // ユーザのドキュメントデータを格納
+                        let userData = document.data()
+                        let user = userData["name"] as? String
+                        // ユーザの表示名とIDを辞書に格納
+                        self.userDic.updateValue(user!, forKey: document.documentID)
+
+                        return user!
                     }
                     // TableViewの表示を更新する
                     self.tableView.reloadData()
@@ -49,9 +79,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // ログイン未(またはログアウト済み)
             if listener != nil {
                 // listener登録済みなら削除してpostArrayをクリアする
+                // 合わせて、ユーザ関連もクリアする
                 listener.remove()
+                listener2.remove()
                 listener = nil
+                listener2 = nil
                 postArray = []
+                userArray = []
+                userDic = [:]
                 tableView.reloadData()
             }
         }
@@ -64,6 +99,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
+        cell.userDic = userDic
         cell.setPostData(postArray[indexPath.row])
 
         // セル内のボタンのアクションをソースコードで設定する
@@ -75,7 +111,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
 
-    // セル内のボタンがタップされた時に呼ばれるメソッド
+    // セル内のライクボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
 
@@ -104,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
-    // セル内のボタンがタップされた時に呼ばれるメソッド
+    // セル内のコメントボタンがタップされた時に呼ばれるメソッド
     @objc func commentButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: commentボタンがタップされました。")
 

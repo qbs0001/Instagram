@@ -12,6 +12,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet var commentButton: UIButton!
     @IBOutlet var commentLabel: UILabel!
 
+    var userDic: [String: String] = [:]
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -54,45 +56,23 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-        
-        
-        
-        
 
+        // 表示名とコメントを格納する配列
         var convComments: [String] = []
-        
+
+        // コメントの数だけ繰り返す
         for value in postData.comments {
-            
             // " : "で配列に分解
             var array = value.components(separatedBy: " : ")
-            
-            // ひとつ目の要素（ユーザID）でユーザのドキュメントを取得
-            let userRef = Firestore.firestore().collection(Const.UserPath).document(array[0])
-            userRef.getDocument { document, _ in
-                if let document = document, document.exists {
-                    // ユーザのドキュメントデータを格納
-                    let userData = document.data()
-                    // ユーザIDに紐づく表示名をユーザIDの代わりに格納
-                    if let userName = userData!["name"] as? String {
-                        array[0] = userName + " : "
-
-                        // 配列を文字列に結合
-                        let value2 = array.joined()
-
-                        // 文字列を配列に格納
-                        convComments.append(value2)
-   
-                    }
-                } else {
-                    print("Document does not exist")
-                }
-               print("2")
-               
+            // ユーザIDに紐づく表示名をユーザIDの代わりに格納
+            if let userName = self.userDic[array[0]] {
+                array[0] = userName + " : "
+                // 配列を文字列に結合
+                let value2 = array.joined()
+                // 文字列を配列に格納
+                convComments.append(value2)
             }
-            print("1")
         }
-        
-        print("3")
         // ユーザの表示名とコメントの表示
         self.commentLabel.text = "\(convComments.joined(separator: "\n"))"
     }

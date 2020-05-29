@@ -1,5 +1,5 @@
-import UIKit
 import CLImageEditor
+import UIKit
 
 class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLImageEditorDelegate {
     @IBAction func handleLibraryButton(_ sender: Any) {
@@ -34,7 +34,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     // 写真を撮影/選択したときに呼ばれるメソッド
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if info[.originalImage] != nil {
             // 撮影/選択された画像を取得する
             let image = info[.originalImage] as! UIImage
@@ -66,5 +66,4 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         // ImageSelectViewController画面を閉じてタブ画面に戻る
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-
 }

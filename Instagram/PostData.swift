@@ -1,5 +1,5 @@
-import UIKit
 import Firebase
+import UIKit
 
 class PostData: NSObject {
     var id: String
@@ -9,29 +9,27 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     
-    var comments:[String] = []
-
+    var comments: [String] = []
+    
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID
-
+        
         let postDic = document.data()
-
+        
         self.name = postDic["name"] as? String
-
+        
         self.caption = postDic["caption"] as? String
-
+        
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
-
+        
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
         }
-        
         // コメントを格納する
         if let comments = postDic["comments"] as? [String] {
             self.comments = comments
         }
-        
         if let myid = Auth.auth().currentUser?.uid {
             // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
             if self.likes.firstIndex(of: myid) != nil {
@@ -39,11 +37,5 @@ class PostData: NSObject {
                 self.isLiked = true
             }
         }
-        
-        
-        
-        
-        
-        
     }
 }
